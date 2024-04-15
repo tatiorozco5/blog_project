@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container>
+<div class="container">
     <h5>Lista de categorías</h5>
     <a href="{{ route('posts.create') }}" class="btn btn-primary">Crear publicación</a>
     <table class="table">
@@ -17,10 +17,10 @@
         <tbody>
             @foreach ($posts as $post)
             <tr>
-                <td>{{ $posts->id }}</td>
-                <td>{{ $posts->title }}</td>
-                <td>{{ $posts->content }}</td>
-                <td>{{ $posts->category_id }}</td>
+                <td>{{ $post->id }}</td>
+                <td>{{ $post->title }}</td>
+                <td>{{ $post->content }}</td>
+                <td>{{ $post->category_id }}</td>
                 <td>
                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Ver</a>
                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Editar</a>

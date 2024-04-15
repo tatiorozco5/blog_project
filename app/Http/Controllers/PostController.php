@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -13,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -28,9 +30,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+        Post::created($request->all());
+        return redirect()->route('posts.index')->with('seccess', 'Post created successfyllu');
     }
 
     /**
@@ -38,7 +41,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact('post' ));
     }
 
     /**
