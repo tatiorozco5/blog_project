@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ $post->id }}</td>
                 <td>{{ $post->title }}</td>
-                <td>{{ $post->content }}</td>
+                <td>{!! html_entity_decode($post->content) !!}</td>
                 <td>{{ $post->category_id }}</td>
                 <td>
                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">Ver</a>

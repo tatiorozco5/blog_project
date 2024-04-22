@@ -12,7 +12,7 @@
                     <div class="form-group">
                         
                     <div class="mb-3">
-                        <label for="category_name" class="form-lable">Nombre categoria</label>
+                        <label for="category_name" class="form-label">Nombre categoria</label>
                         <input class="form-control" type="text" name="category_name" id = "category" placeholder="Category Name">
                     </div>
                     

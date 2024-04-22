@@ -49,15 +49,18 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('posts.edit', compact('post','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(CreatePostRequest $request, Post $post)
     {
-        //
+        $validated = $request->validated();
+        $post->update($validated);
+        return redirect()->route('posts.index')->with('success','Post updated successfully');
     }
 
     /**
@@ -65,6 +68,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfylly');
     }
 }
